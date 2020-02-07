@@ -1,0 +1,23 @@
+{% extends "arguepedia/base.html" %}
+
+{%block main%}
+<div class="row">
+	<div class="col-12">
+{{argument.title}}
+{% if argument.image %}
+<img src="{{ argument.image.url}}" class='card-img-top'/>
+
+{% endif %}
+
+
+</div>
+{% if request.user.is_authenticated %}
+	{% if request.user == argument.user%}
+	<a href="{{argument.get_edit_url}}"> edit</a><br/>
+	<a href="{{argument.get_delete_url}}"> delete </a><br/>
+	<a href="{{argument.get_detail_url}}edit/">back </a>
+
+	{% endif%}
+	{%endif%}
+</div>
+{%endblock%}q

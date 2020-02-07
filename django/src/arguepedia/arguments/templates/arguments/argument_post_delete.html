@@ -1,0 +1,11 @@
+{% extends "arguepedia/base.html" %}
+
+{%block main%}
+<h2> Are you sure you want to delete:</h2>
+<h1> {{ object.title }} -delete</h1>
+<h5> {{ object.content }}</h5>
+
+<form method='POST'> {% csrf_token%}
+	<button classs = 'btn btn-danger'>Yes, Delete </button>
+</form>
+{%endblock%}
