@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'arguments',
     'searches',
     'crispy_forms',
+    'users',
 
 ]
 

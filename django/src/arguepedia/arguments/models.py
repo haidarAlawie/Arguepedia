@@ -43,7 +43,6 @@ class ArgumentPost(models.Model):
 	publish_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True, blank=True)
 	timestamp = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-
 	objects = ArgumentPostManager()
 
 	class Meta:
