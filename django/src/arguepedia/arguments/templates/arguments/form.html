@@ -1,4 +1,6 @@
+
 {% extends 'arguepedia/base.html' %}
+{% load crispy_forms_tags %}
 
 {%block main%}
 {% if title %}
@@ -8,7 +10,7 @@
 
 <form method="POST" action='.' enctype='multipart/form-data'>
 	{% csrf_token %}
-	{{ form.as_p }}
+	{{ form|crispy }}
 	<button type="submit"> Send </button>
 </form>
 

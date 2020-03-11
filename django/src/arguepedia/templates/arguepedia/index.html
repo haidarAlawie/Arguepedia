@@ -3,6 +3,17 @@
 
 
 {%block main%}
+
+
+
+<div class="container">
+	<p> hello</p>
+
+</div>
+
+
+
+
 <h1>{{title}}</h1>
 
 {% if user.is_authenticated %}
@@ -16,9 +27,6 @@
 {% for arg in argument_list %}
  {%include 'arguments/list-section.html' with argument=arg truncate=True%}
 {%endfor%}
-
-
-
 
 
 

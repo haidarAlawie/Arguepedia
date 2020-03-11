@@ -1,15 +1,24 @@
 from django import forms
-from .models import ArgumentPost
+from .models import ArgumentPost, Action
 
 
 class ArgumentPostModelForm(forms.ModelForm):
 	class Meta:
 		model = ArgumentPost
 		fields = [
+		'argument_type',
 		'title',
-		'image',
-		'slug',
-		'content'
+
+		]
+class ActionForm(forms.ModelForm):
+	class Meta:
+		model = Action
+		fields = [
+		'situation',
+		'action',
+		'goal',
+		'value',
+		'explanation'
 		]
 
 	#validation to make sure no identical title names

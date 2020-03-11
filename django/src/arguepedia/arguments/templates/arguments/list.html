@@ -1,0 +1,14 @@
+{% extends "arguepedia/base.html" %}
+
+{%block main%}
+
+
+{% for argument in arguments_list %}
+<div class="row" style="margin-top: 20px;">
+	{%include 'arguments/list-section.html' with argument=argument truncate=True %}
+</div>
+
+
+{% endfor %}
+
+{%endblock%}

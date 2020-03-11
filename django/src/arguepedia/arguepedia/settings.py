@@ -27,10 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = '/login'
-LOGIN_REDIRECT_URL = 'home'
+# LOGIN_URL = 'accounts/'
+# LOGIN_REDIRECT_URL = 'accounts/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'searches',
     'crispy_forms',
     'users',
+    'training',
+
+
 
 ]
 
@@ -84,7 +87,7 @@ WSGI_APPLICATION = 'arguepedia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'arguepedia_db',
+        'NAME': 'db_arguepedia',
         'USER': 'postgres',
         'PASSWORD': 'Lebanon123',
         'HOST': '127.0.0.1',
@@ -125,7 +128,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+ 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
@@ -144,6 +147,8 @@ os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
 MEDIA_URL ='/media/'
+
+
 
 
 

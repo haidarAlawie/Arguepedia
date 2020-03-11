@@ -1,0 +1,36 @@
+{% extends "arguepedia/base.html" %}
+
+{%block main%}
+<div class="row">
+	<div class="col-12">
+{{argument.title}}
+{{argument.argument_type}}
+<p> next is situation </p>
+
+<li>{{object2.situation}}</li>
+<li>{{object2.action}}</li>
+<li>{{object2.goal}}</li>
+<li>{{object2.value}}</li>
+
+{% if argument.image %}
+<img src="{{ argument.image.url}}" class='card-img-top'/>
+
+{% endif %}
+
+
+
+</div>
+{% if request.user.is_authenticated %}
+	{% if request.user == argument.user%}
+	<a href="{{argument.get_edit_url}}"> edit</a><br/>
+	<a href="{{argument.get_delete_url}}"> delete </a><br/>
+	<a href="{{argument.get_detail_url}}edit/">back </a>
+
+	{% endif%}
+	{% if request.user != argument.user%}
+	<button> <a href="{{argument.get_argue_url}}"> Argue </a> </button>
+	{%endif%}
+	{%endif%}
+
+</div>
+{%endblock%}

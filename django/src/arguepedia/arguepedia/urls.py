@@ -16,19 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from .views import index_page, contactus_page
+from .views import index_page, contactus_page, graph1_page
 from arguments.views import (
-argument_post_create_view
+create_view,
 )
+
+
 from searches.views import search_view
+
 urlpatterns = [
 	path('', index_page, name='home'),
     path('search/', search_view),
     path('contact/', contactus_page),
-    path('arguments/', include('arguments.urls')),
-    path('argument-new/', argument_post_create_view),
+    path('arguments/', include('arguments.urls'), name='arguments'),
+    path('argument-new/', create_view),
     path('admin/', admin.site.urls),
-    path('accounts/', include('users.urls')),
+    path('user/', include('users.urls')),
+
+    path('graph1', graph1_page),
+    path('training/', include('training.urls')),
 ]
 
 

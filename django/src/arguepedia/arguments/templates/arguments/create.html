@@ -1,0 +1,62 @@
+{% extends 'arguepedia/base.html' %}
+{% load crispy_forms_tags %}
+{% load static%}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src = "{% static 'script.js' %}">
+
+
+</script>
+
+{% endblock %}
+{%block main%}
+
+
+{% if title %}
+
+<h1>{{title}} </h1>
+{%endif%}
+
+<form method="POST" action='.' enctype='multipart/form-data'>
+	<div class="row">
+		<div class= "col-4">
+
+	{{ form|crispy}}
+
+
+
+
+
+	{% csrf_token %}
+<div id="action-form">
+	{{ action_form|crispy}}
+</div>
+<button type="submit"> Send </button>
+
+</div>
+</div>
+</form>
+
+
+
+
+<button onclick="revealTuple()"> click me </button>
+
+<p id="hiddenMessage" style="display:none"> You are hidden </p>
+
+<script>
+
+$('#action-form').hide()
+$('#id_argument_type').on('change', function(){
+  var mainselection = this.value; // get the selection value
+  if (mainselection == "action"){
+  	$('#action-form').show()
+	}
+	else{
+		$('#action-form').hide()
+	}
+
+
+    });
+</script>
+{%endblock%}

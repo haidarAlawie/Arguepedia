@@ -16,18 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import (
-argument_post_detail_view,
-argument_post_list_view,
-argument_post_create_view,
-argument_post_update_view,
-argument_post_delete_view
+detail_view,
+list_view,
+create_view,
+update_view,
+delete_view,
+argue_view,
+graph_view,
 
 )
 urlpatterns = [
-    path('', argument_post_list_view),
-
-	path('<int:post_id>/', argument_post_detail_view),
-    path('argument-new/', argument_post_create_view),
-    path('<int:post_id>/delete/', argument_post_delete_view),
-    path('<int:post_id>/edit/', argument_post_update_view),
+    path('', list_view),
+    path('graph/', graph_view),
+    path('<int:post_id>/argue/', argue_view, name='argue'),
+	path('<int:post_id>/', detail_view),
+    path('argument-new/', create_view),
+    path('<int:post_id>/delete/', delete_view),
+    path('<int:post_id>/edit/', update_view),
 ]
